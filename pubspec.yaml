@@ -1,22 +1,20 @@
-name: babil
-description: Babil - Maçları anlamak için sade analiz uygulaması
-publish_to: 'none'
+name: babil_app
+description: Babil - sade futbol analiz uygulamasi
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^3.0.0
 
 flutter:
