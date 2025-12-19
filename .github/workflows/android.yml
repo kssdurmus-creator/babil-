@@ -27,8 +27,7 @@ jobs:
       - name: Flutter doktor
         run: flutter doctor
 
-      - name: Proje tamamlama
-        run: flutter create .
+  
 
       - name: Paketleri al
         run: flutter pub get
