@@ -1,14 +1,16 @@
-name: Build Android APK
+name: Build APK
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Repo çek
+      - name: Repo cek
         uses: actions/checkout@v4
 
       - name: Java kur
@@ -20,17 +22,21 @@ jobs:
       - name: Flutter kur
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
+          flutter-version: '3.22.0'
 
-      - name: Flutter proje oluştur
-        run: |
-          flutter create .
-          flutter pub get
+      - name: Flutter doktor
+        run: flutter doctor
 
-      - name: APK üret
+      - name: Proje tamamlama
+        run: flutter create .
+
+      - name: Paketleri al
+        run: flutter pub get
+
+      - name: APK uret
         run: flutter build apk --release
 
-      - name: APK yükle
+      - name: APK yukle
         uses: actions/upload-artifact@v4
         with:
           name: babil-apk
