@@ -1,8 +1,6 @@
 name: Build Android APK
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -22,10 +20,12 @@ jobs:
       - name: Flutter kur
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.0'
+          flutter-version: 'stable'
 
-      - name: Paketleri al
-        run: flutter pub get
+      - name: Flutter proje oluştur
+        run: |
+          flutter create .
+          flutter pub get
 
       - name: APK üret
         run: flutter build apk --release
